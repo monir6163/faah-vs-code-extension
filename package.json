@@ -1,0 +1,47 @@
+{
+  "name": "failhorn",
+  "displayName": "Fail Horn 🔊",
+  "description": "Plays FAAAAH sound whenever you make a coding error",
+  "version": "1.0.0",
+  "author": {
+    "name": "Monir Hossain",
+    "url": "https://www.facebook.com/monirweb.wdd"
+  },
+  "publisher": "monirweb",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "FAAAH Sound Settings",
+      "properties": {
+        "faaah.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable FAAAah error sound"
+        },
+        "faaah.cooldownMs": {
+          "type": "number",
+          "default": 1500,
+          "description": "Minimum delay between sounds (milliseconds)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
