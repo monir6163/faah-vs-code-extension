@@ -2,7 +2,7 @@
   "name": "failhorn",
   "displayName": "Fail Horn 🔊 (FAAAAH)",
   "description": "Plays FAAAAH sound whenever you make a coding error",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Monir Hossain",
   "publisher": "Monirweb",
   "repository": {
@@ -18,6 +18,13 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "keywords": [
+    "error",
+    "sound",
+    "eslint",
+    "typescript",
+    "fun"
+  ],
   "categories": [
     "Other"
   ],
@@ -26,6 +33,13 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "faaah.toggleMute",
+        "title": "FAAAH: Toggle Mute",
+        "icon": "$(unmute)"
+      }
+    ],
     "configuration": {
       "title": "FAAAH Sound Settings",
       "properties": {
@@ -38,6 +52,11 @@
           "type": "number",
           "default": 1500,
           "description": "Minimum delay between sounds (milliseconds)"
+        },
+        "faaah.muted": {
+          "type": "boolean",
+          "default": false,
+          "description": "Mute FAAAH sounds temporarily"
         }
       }
     }
