@@ -24,7 +24,15 @@ export function activate(context: vscode.ExtensionContext) {
     lastErrorCount = currentCount;
   });
 
-  context.subscriptions.push(diagnosticListener);
+  // টাস্ক শেষ হওয়ার পর পর্যবেক্ষণ করা (npm run build, tsc, vite, jest etc.)
+  const taskListener = vscode.tasks.onDidEndTaskProcess((event) => {
+    // যদি টাস্ক ব্যর্থ হয় (exit code ≠ 0)
+    if (event.exitCode !== 0) {
+      playSound(context);
+    }
+  });
+
+  context.subscriptions.push(diagnosticListener, taskListener);
 }
 
 function countErrors(): number {
@@ -41,7 +49,7 @@ function playSound(context: vscode.ExtensionContext) {
   const config = vscode.workspace.getConfiguration("faaah");
   if (!config.get("enabled", true)) return;
 
-  const cooldown = config.get<number>("cooldownMs") || 1000;
+  const cooldown = config.get<number>("cooldownMs") || 1500;
   const now = Date.now();
 
   if (now - lastPlayed < cooldown) return;

@@ -3,11 +3,18 @@
   "displayName": "Fail Horn 🔊",
   "description": "Plays FAAAAH sound whenever you make a coding error",
   "version": "1.0.0",
-  "author": {
-    "name": "Monir Hossain",
-    "url": "https://www.facebook.com/monirweb.wdd"
+  "author": "Monir Hossain",
+  "publisher": "Monirweb",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monir6163/faah-vs-code-extension"
   },
-  "publisher": "monirweb",
+  "license": "MIT",
+  "icon": "icon.png",
+  "homepage": "https://github.com/monir6163/faah-vs-code-extension",
+  "bugs": {
+    "url": "https://github.com/monir6163/faah-vs-code-extension/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
